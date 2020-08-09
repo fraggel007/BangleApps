@@ -1,3 +1,4 @@
+require("Font8x12").add(Graphics);
 var is12Hour = (require("Storage").readJSON("setting.json",1)||{})["12hour"];
 var locale = require("locale");
 var CHARW = 34; // how tall are digits?
@@ -188,9 +189,32 @@ function showTime() {
       animInterval = undefined;
     }
     drawDigits(l,t,n);
+   sf_widget2.set(10+'%');
   }, 20);
   lastTime = t;
 }
+
+var sf_widget2 = {
+  sf_p1x: 120,
+  sf_p1y: 190,
+  ringColor: '#CC0000',
+  ringSize: 30,
+  numColor: '#FFFFFF',
+  draw: function(){
+    //RING
+    g.setColor(this.ringColor);
+    g.fillCircle(this.sf_p1x,this.sf_p1y,this.ringSize);
+    g.setColor('#000000');
+    g.fillCircle(this.sf_p1x,this.sf_p1y,this.ringSize - 6);
+  },
+  set: function(value){
+    var x = value.length;
+    g.setFont("8x12",2);
+    g.setColor(this.numColor);
+    g.drawString(value,this.sf_p1x - x*5 , this.sf_p1y - 10, false /*clear background*/);
+  }
+};
+
 
 Bangle.on('lcdPower',function(on) {
   if (animInterval) {
@@ -215,6 +239,7 @@ Bangle.drawWidgets();
 // Update time once a second
 timeInterval = setInterval(showTime, 1000);
 showTime();
+sf_widget2.draw();
 
 // Show launcher when middle button pressed
 setWatch(Bangle.showLauncher, BTN2, {repeat:false,edge:"falling"});
