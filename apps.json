@@ -3,7 +3,7 @@
     "name": "Morphing Clock by SF",
     "icon": "clock-morphing.png",
     "version":"0.03",
-    "description": "7 segment clock that morphs between minutes and hours",
+    "description": "angepasst durch Stephan Frenkel",
     "tags": "clock",
     "type":"clock",
     "allow_emulator":true,
