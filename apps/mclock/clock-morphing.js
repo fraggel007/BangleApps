@@ -208,10 +208,10 @@ var sf_widget2 = {
     g.fillCircle(this.sf_p1x,this.sf_p1y,this.ringSize - 6);
   },
   set: function(value){
-    var x = value.length;
+    //var x = value.length;
     g.setFont("8x12",2);
     g.setColor(this.numColor);
-    g.drawString(value,this.sf_p1x - x*5 , this.sf_p1y - 10, false /*clear background*/);
+    g.drawString(value,this.sf_p1x , this.sf_p1y - 10, false /*clear background*/);
   }
 };
 
