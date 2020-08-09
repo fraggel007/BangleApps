@@ -2,7 +2,7 @@
   { "id": "mclock",
     "name": "Morphing Clock by SF",
     "icon": "clock-morphing.png",
-    "version":"0.01",
+    "version":"0.02",
     "description": "7 segment clock that morphs between minutes and hours",
     "tags": "clock",
     "type":"clock",
