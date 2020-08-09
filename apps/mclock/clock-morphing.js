@@ -189,7 +189,7 @@ function showTime() {
       animInterval = undefined;
     }
     drawDigits(l,t,n);
-   sf_widget2.set(10+'%');
+   sf_widget2.set(E.getBattery()+'%');
   }, 20);
   lastTime = t;
 }
@@ -240,6 +240,7 @@ Bangle.drawWidgets();
 timeInterval = setInterval(showTime, 1000);
 showTime();
 sf_widget2.draw();
+sf_widget2.set(E.getBattery()+'%');
 
 // Show launcher when middle button pressed
 setWatch(Bangle.showLauncher, BTN2, {repeat:false,edge:"falling"});
